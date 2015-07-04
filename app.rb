@@ -82,7 +82,10 @@ __END__
       - if params[:domain]
         - posts['posts'].each do |post|
           .post
-            .post-link
+            .visible-xs
+              %a{href:post['post_url']}
+                %img{src:'/images/link.gif'}
+            .post-link.hidden-xs
               %a{href:post['post_url']}
                 %img{src:'/images/link.gif'}
             - if post['title']
