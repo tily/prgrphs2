@@ -96,4 +96,4 @@ __END__
       - else
         .post
           %form.form{method:'POST'}
-            %input.form-control{type:'text',name:'text',placeholder:'its.tumblr.com'}
+            %input.form-control{type:'text',name:'text',placeholder:'username or url ...'}
