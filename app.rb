@@ -94,6 +94,7 @@ __END__
         .pagination.text-center
           - if prev_page
             %a{href: prev_page} <<
+          &nbsp;&nbsp;
           - if next_page
             %a{href: next_page} >>
       - else
