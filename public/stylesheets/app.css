@@ -1,0 +1,59 @@
+a,
+a:hover,
+a:visited,
+a:active,
+a:focus {
+  color: #111;
+  text-decoration: underline;
+}
+.pagination a,
+.pagination a:hover,
+.pagination a:visited,
+.pagination a:active,
+.pagination a:focus {
+  color: #555;
+  text-decoration: none;
+}
+.post {
+  padding-top: 5.0em;
+  padding-bottom: 20.0em;
+  position: relative;
+}
+.post-link {
+  position: absolute;
+  top: 5.25em;
+  right: 0.5em;
+  visibility: hidden;
+  opacity: 0.9;
+}
+.post:hover > .post-link {
+  visibility: visible;
+}
+.post-title {
+  font-weight: bold;
+  color: #444; /*TODO*/
+}
+.post-body {
+  padding-top: 1.0em;
+  color: #555; /*TODO*/
+}
+.pagination {
+  padding-bottom: 1.0em;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 600px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 600px;
+  }
+}
