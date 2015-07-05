@@ -95,12 +95,12 @@ __END__
     %input.form-control{type:'text',name:'text',placeholder:'Username or URL ...'}
 @@ domain
 - posts['posts'].each do |post|
-  .post
+  .post.hentry
     .visible-xs
-      %a{href:post['post_url']}
+      %a.permalink{href:post['post_url'],rel:'bookmark'}
         %img{src:'/images/link.gif'}
     .post-link.hidden-xs
-      %a{href:post['post_url']}
+      %a.permalink{href:post['post_url'],rel:'bookmark'}
         %img{src:'/images/link.gif'}
     - if post['title']
       .post-title= post['title']
