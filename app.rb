@@ -55,7 +55,7 @@ get '/' do
   end
 end
 
-get %r|^/(?<domain>[^/]+)(/page/(?<page>\d+))?(\.(?<format>json))?| do
+get %r|^/(?<domain>[^/]+?)(/page/(?<page>\d+))?(\.(?<format>json))?$| do
   if posts.key?('status')
     if params[:format] == 'json'
       halt posts['status'], posts['msg']
