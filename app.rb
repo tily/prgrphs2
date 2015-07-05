@@ -48,6 +48,7 @@ end
 
 get '/' do
   if params[:domain]
+    # for backward compatibility (https://twitter.com/tily/status/617145990328397824)
     redirect page_path(params[:domain], page)
   else
     haml :top
