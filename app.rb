@@ -50,7 +50,7 @@ get '/' do
   if params[:domain]
     redirect page_path(params[:domain], page)
   else
-    haml :app
+    haml :top
   end
 end
 
@@ -59,7 +59,7 @@ get %r|^/(?<domain>[^/]+)(/page/(?<page>\d+))?(\.(?<format>json))?| do
     content_type 'application/json'
     posts.to_json
   else
-    haml :app
+    haml :domain
   end
 end
 
@@ -76,7 +76,7 @@ post '/' do
 end
 
 __END__
-@@ app
+@@ layout
 !!! html
 %html
   %head
@@ -88,25 +88,26 @@ __END__
     %link{rel:'stylesheet',href:'/stylesheets/app.css'}
   %body
     .container
-      - if params[:domain]
-        - posts['posts'].each do |post|
-          .post
-            .visible-xs
-              %a{href:post['post_url']}
-                %img{src:'/images/link.gif'}
-            .post-link.hidden-xs
-              %a{href:post['post_url']}
-                %img{src:'/images/link.gif'}
-            - if post['title']
-              .post-title= post['title']
-            .post-body= post['body']
-        .pagination.text-center
-          - if prev_page
-            %a{href: prev_page} <<
-          &nbsp;&nbsp;
-          - if next_page
-            %a{href: next_page} >>
-      - else
-        .post
-          %form.form{method:'POST'}
-            %input.form-control{type:'text',name:'text',placeholder:'Username or URL ...'}
+      = yield
+@@ top
+.post
+  %form.form{method:'POST'}
+    %input.form-control{type:'text',name:'text',placeholder:'Username or URL ...'}
+@@ domain
+- posts['posts'].each do |post|
+  .post
+    .visible-xs
+      %a{href:post['post_url']}
+        %img{src:'/images/link.gif'}
+    .post-link.hidden-xs
+      %a{href:post['post_url']}
+        %img{src:'/images/link.gif'}
+    - if post['title']
+      .post-title= post['title']
+    .post-body= post['body']
+.pagination.text-center
+  - if prev_page
+    %a{href: prev_page} <<
+  &nbsp;&nbsp;
+  - if next_page
+    %a{href: next_page} >>
