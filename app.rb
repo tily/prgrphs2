@@ -22,7 +22,7 @@ helpers do
   end
 
   def page_path(domain, page)
-    "/?" + {domain: domain, page: page}.to_query
+    page == 1 ? "/#{domain}" : "/#{domain}/page/#{page}"
   end
 
   def prev_page
@@ -47,6 +47,14 @@ helpers do
 end
 
 get '/' do
+  if params[:domain]
+    redirect page_path(params[:domain], page)
+  else
+    haml :app
+  end
+end
+
+get %r|^/(?<domain>[^/]+)(/page/(?<page>\d+))?(\.(?<format>json))?| do
   if params[:format] == 'json'
     content_type 'application/json'
     posts.to_json
