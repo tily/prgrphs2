@@ -73,6 +73,7 @@ __END__
 %html
   %head
     %meta{charset:'utf-8'}
+    %meta{name:"robots",content:"noindex"}
     %meta{name:'viewport',content:'width=device-width,initial-scale=1.0'}
     %title= params[:domain] ? "#{posts['blog']['title']} - prgrphs2" : 'prgrphs2'
     %link{rel:'stylesheet',href:'//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'}
