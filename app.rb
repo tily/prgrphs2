@@ -55,6 +55,14 @@ get '/' do
 end
 
 get %r|^/(?<domain>[^/]+)(/page/(?<page>\d+))?(\.(?<format>json))?| do
+  if posts.key?('status')
+    if params[:format] == 'json'
+      halt posts['status'], posts['msg']
+    else
+      halt posts.to_json
+    end
+  end
+
   if params[:format] == 'json'
     content_type 'application/json'
     posts.to_json
