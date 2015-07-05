@@ -105,8 +105,8 @@ __END__
 @@ domain
 - posts['posts'].each do |post|
   .post.hentry
-    .visible-xs
-      %a.permalink{href:post['post_url'],rel:'bookmark'}
+    .post-link-xs.visible-xs
+      %a.pull-right.permalink{href:post['post_url'],rel:'bookmark'}
         %img{src:'/images/link.gif'}
     .post-link.hidden-xs
       %a.permalink{href:post['post_url'],rel:'bookmark'}

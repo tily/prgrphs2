@@ -26,6 +26,9 @@ a:focus {
   visibility: hidden;
   opacity: 0.9;
 }
+.post-link-xs {
+  padding-bottom: 1.0em; 
+}
 .post:hover > .post-link {
   visibility: visible;
 }
