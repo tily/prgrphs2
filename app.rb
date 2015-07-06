@@ -113,7 +113,9 @@ __END__
         %img{src:'/images/link.gif'}
     - if post['title']
       .post-title= post['title']
-    .post-body= post['body']
+    # use trail.0.content if possible because it includes better data
+    # ex) http://to.tumblr.com/post/86832734
+    .post-body= post['trail'].empty? ? post['body'] : post['trail'][0]['content']
 .pagination.text-center
   - if prev_page
     %a{href: prev_page} <<
